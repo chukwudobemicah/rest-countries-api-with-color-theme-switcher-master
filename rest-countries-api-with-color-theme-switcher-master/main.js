@@ -1,4 +1,5 @@
-'use strict';
+gsap.registerPlugin(ScrollTrigger);
+('use strict');
 const input = document.querySelector('input');
 const errorMessage = document.querySelector('.error-message');
 const homepage = document.querySelector('.homepage');
@@ -50,7 +51,9 @@ const renderErrMsg = function (
   errorMessage.classList.remove('hidden');
   errorMessage.innerHTML = errMsg;
 };
-
+export const detailsCountryName = document.querySelector(
+  '.details-page--country-name'
+);
 const renderDetailsPage = function (
   countryName,
   flag,
@@ -63,9 +66,6 @@ const renderDetailsPage = function (
   language,
   bordersArr
 ) {
-  const detailsCountryName = document.querySelector(
-    '.details-page--country-name'
-  );
   const detailsCountryFlag = document.querySelector('.details-img');
   const detailsCountryRegion = document.querySelector('.details-page--region');
   const detailsCountryDomain = document.querySelector('.details-page--domain');
@@ -103,6 +103,22 @@ const renderDetailsPage = function (
     '.details-page__border-countries ul'
   );
 
+  // const text = new SplitType(detailsCountryName);
+  // console.log(text);
+
+  // gsap.to(detailsCountryName, {
+  //   y: 0,
+  //   stagger: 0.025,
+  //   duration: 0.1,
+  //   marker: true,
+  //   scrollTrigger: {
+  //     trigger: detailsCountryName,
+  //     // start: 'top 100%',
+  //     toggleActions: 'restart none none none',
+  //     markers: true,
+  //   },
+  // });
+
   borderList.innerHTML = '';
   bordersArr.forEach(bd => {
     borderList.insertAdjacentHTML(
@@ -126,7 +142,7 @@ back.addEventListener('click', function () {
   showCountryContainer();
   detailsPageArticle.classList.remove('translate-left');
   detailsPageArticle.classList.add('translate-right');
-  homepage.classList.remove('hidden');
+  setTimeout(() => homepage.classList.remove('hidden'), 150);
 });
 
 const clearCountryContainer = function () {
@@ -239,7 +255,7 @@ async function getTypedCountries() {
     });
     if (res.ok) {
       removeErrMsg();
-      // clearCountryContainer();
+      clearCountryContainer();
       data.forEach(data => {
         renderCountries(
           data.flags.png,
@@ -293,14 +309,6 @@ async function getRegionCountries(region) {
         );
       });
     }
-    // console.log(allRestCountryData);
-    // const filterArr = allRestCountryData.filter(country => {
-    //   country.region === region;
-    //   console.log(country.region.toLowerCase);
-    //   console.log(country.region === region);
-    //   console.log(country.region);
-    // });
-    // console.log(filterArr);
     countryDetailsContainer.forEach(cD => {
       cD.addEventListener('click', function () {
         const countryNameEl = cD.querySelector('.country-name');
@@ -332,4 +340,22 @@ options.forEach(op => {
     const region = op.textContent.trim();
     getRegionCountries(region);
   });
+});
+
+const themeSwitcher = document.querySelector('.theme-switcher');
+const themeSwitcherP = document.querySelector('.dark');
+const themeSwitcherMoon = document.querySelector('.moon');
+const themeSwitcherSun = document.querySelector('.sun');
+const themeSwitcherImg = document.querySelectorAll('.theme-switcher img');
+themeSwitcher.addEventListener('click', function () {
+  document.documentElement.classList.toggle('light');
+  themeSwitcherMoon.classList.toggle('invert');
+  themeSwitcherSun.classList.toggle('invert');
+  themeSwitcherMoon.classList.toggle('opacity-0');
+  themeSwitcherSun.classList.toggle('opacity-0');
+  if (document.documentElement.classList.contains('light')) {
+    themeSwitcherP.textContent = 'Light Mode';
+  } else {
+    themeSwitcherP.textContent = 'Dark Mode';
+  }
 });

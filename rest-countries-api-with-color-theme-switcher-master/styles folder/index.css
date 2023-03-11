@@ -89,9 +89,11 @@ body {
   font-family: 'Poppins', sans-serif;
   font-family: 'Roboto', sans-serif;
   font-family: 'Space Grotesk', sans-serif;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
 
-body .loader {
+.loader {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -99,8 +101,8 @@ body .loader {
           transform: translate(-50%, -50%);
 }
 
-body .loader img {
-  border-radius: 70%;
+.loader img {
+  border-radius: 50%;
 }
 
 main {
@@ -114,11 +116,19 @@ main section {
 }
 
 header,
-.input-container,
+.input-container p,
 .filter,
-.country-details-container {
+.country-details-container,
+.back,
+.options,
+.details-page__border-countries li {
   -webkit-box-shadow: 0px 5px 10px 1px #00000044;
           box-shadow: 0px 5px 10px 1px #00000044;
+}
+
+input {
+  -webkit-box-shadow: 5px 5px 10px 1px #00000044;
+          box-shadow: 5px 5px 10px 1px #00000044;
 }
 
 header {
@@ -155,6 +165,11 @@ header div {
 header div img {
   width: 0.8rem;
   margin-right: 0.35rem;
+}
+
+.invert {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 input::-webkit-input-placeholder {
@@ -195,8 +210,6 @@ input::placeholder {
 }
 
 .input-container p img {
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
   width: 1.5rem;
 }
 
@@ -270,8 +283,6 @@ input::placeholder {
 
 .homepage article:nth-child(1) .filter > p:nth-child(1) img {
   width: 0.8rem;
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
 }
 
 .homepage article:nth-child(1) .filter .options {
@@ -421,8 +432,6 @@ input::placeholder {
 
 .details-page > article .button__container button img {
   width: 0.8rem;
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
 }
 
 .details-page > article .details-img__container {
@@ -436,6 +445,13 @@ input::placeholder {
 
 .details-page > article .details__content-container {
   grid-column: span 12;
+}
+
+.input-container img,
+.filter img,
+button img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 ul {
@@ -559,6 +575,15 @@ h3 {
     grid-column: span 6;
     margin: 0;
   }
+  section:nth-child(1) article:nth-child(2) .country-container .country-details-container:hover {
+    -webkit-transform: translateY(-1rem);
+            transform: translateY(-1rem);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    cursor: pointer;
+  }
   section:nth-child(2) article {
     -ms-grid-columns: (1fr)[12];
         grid-template-columns: repeat(12, 1fr);
@@ -621,6 +646,9 @@ h3 {
   body {
     max-width: 100vw;
     overflow-x: hidden;
+  }
+  .input-container p img {
+    width: 1rem;
   }
   header {
     max-width: 100%;
@@ -709,5 +737,70 @@ h3 {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+}
+
+.light body,
+.light .details-page,
+.light .details-page article,
+.light .homepage article:nth-child(1) .filter .options {
+  background-color: #fafafa;
+  color: #111517;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.light .country-details-container,
+.light header,
+.light input,
+.light .details-page > article .button__container button,
+.light .homepage article:nth-child(1) .filter,
+.light .homepage article:nth-child(1) input,
+.light .input-container p,
+.light .details-page__border-countries ul li {
+  background-color: white;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.light span {
+  color: rgba(0, 0, 0, 0.714);
+}
+
+.light .input-container img,
+.light .filter img,
+.light button img {
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
+.char {
+  -webkit-transform: translateY(115px);
+          transform: translateY(115px);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.details-page--country-name {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.opacity-0 {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.theme-switcher p:nth-child(1) {
+  position: relative;
+  width: 1rem;
+  height: 0.8125rem;
+}
+
+.theme-switcher p:nth-child(1) img {
+  position: absolute;
+  top: 0;
 }
 /*# sourceMappingURL=index.css.map */
