@@ -12,9 +12,13 @@ const loader = document.querySelector('.loader');
 
 const showLoader = function () {
   loader.classList.remove('hidden');
+  detailsPage.classList.add('hidden');
+  detailsPageArticle.classList.add('hidden');
 };
 const removeLoader = function () {
   loader.classList.add('hidden');
+  detailsPage.classList.remove('hidden');
+  detailsPageArticle.classList.remove('hidden');
 };
 
 let countryDetailsContainer;
@@ -23,10 +27,10 @@ const renderCountries = function (flag, name, population, region, capital) {
   countryContainer.insertAdjacentHTML(
     'afterbegin',
     `  <div class="country-details-container">
-          <img src="${flag}" alt="flag">
+          <img src="${flag}" alt="${name} flag">
           <div>
               <h2 data-name="${name}" class="country-name">${name}</h2>
-              <p>population: <span class="population">${population.toLocaleString()}</span></p>
+              <p>population: <span class="population"> ${population.toLocaleString()}</span></p>
               <p>region: <span class="region">${region}</span></p>
               <p>capital:<span class="capital"> ${capital}</span></p>
           </div>
@@ -102,22 +106,6 @@ const renderDetailsPage = function (
   const borderList = document.querySelector(
     '.details-page__border-countries ul'
   );
-
-  // const text = new SplitType(detailsCountryName);
-  // console.log(text);
-
-  // gsap.to(detailsCountryName, {
-  //   y: 0,
-  //   stagger: 0.025,
-  //   duration: 0.1,
-  //   marker: true,
-  //   scrollTrigger: {
-  //     trigger: detailsCountryName,
-  //     // start: 'top 100%',
-  //     toggleActions: 'restart none none none',
-  //     markers: true,
-  //   },
-  // });
 
   borderList.innerHTML = '';
   bordersArr.forEach(bd => {

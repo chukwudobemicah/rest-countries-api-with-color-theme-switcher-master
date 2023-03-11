@@ -93,12 +93,39 @@ body {
   transition: background-color 0.5s ease;
 }
 
+body::-webkit-scrollbar {
+  width: 20px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
 .loader {
   position: absolute;
+  width: 100vw;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loader img {
@@ -174,18 +201,22 @@ header div img {
 
 input::-webkit-input-placeholder {
   color: inherit;
+  font-size: 0.85rem;
 }
 
 input:-ms-input-placeholder {
   color: inherit;
+  font-size: 0.85rem;
 }
 
 input::-ms-input-placeholder {
   color: inherit;
+  font-size: 0.85rem;
 }
 
 input::placeholder {
   color: inherit;
+  font-size: 0.85rem;
 }
 
 .input-container {
@@ -568,6 +599,12 @@ h3 {
     max-width: 100vw;
     overflow-x: hidden;
   }
+  .country-details-container,
+  .details-page__border-countries p,
+  .filter p,
+  .back {
+    cursor: pointer;
+  }
   section:nth-child(1) article:nth-child(2) .country-container {
     gap: 2rem;
   }
@@ -578,11 +615,10 @@ h3 {
   section:nth-child(1) article:nth-child(2) .country-container .country-details-container:hover {
     -webkit-transform: translateY(-1rem);
             transform: translateY(-1rem);
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
   }
   section:nth-child(2) article {
     -ms-grid-columns: (1fr)[12];
@@ -666,12 +702,17 @@ h3 {
             justify-content: space-between;
     max-width: 90%;
     margin: 1rem auto 2rem auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   main .homepage article:nth-child(1) input {
-    width: 20rem;
+    width: 21rem;
   }
   main .homepage article:nth-child(1) div {
-    width: 15rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   main section:nth-child(1) article:nth-child(2) .country-container {
     width: 90%;
@@ -749,6 +790,10 @@ h3 {
   transition: background-color 0.5s ease;
 }
 
+.light body::-webkit-scrollbar-thumb {
+  background-color: #2b3945;
+}
+
 .light .country-details-container,
 .light header,
 .light input,
@@ -791,6 +836,10 @@ h3 {
   opacity: 0;
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
+}
+
+.theme-switcher {
+  cursor: pointer;
 }
 
 .theme-switcher p:nth-child(1) {

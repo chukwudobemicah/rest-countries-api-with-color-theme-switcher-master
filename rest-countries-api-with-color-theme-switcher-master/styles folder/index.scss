@@ -89,12 +89,27 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   transition: background-color 0.5s ease;
 }
+body::-webkit-scrollbar {
+  width: 20px;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $White;
+}
 
 .loader {
   position: absolute;
+  width: 100vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
   img {
     border-radius: 50%;
   }
@@ -149,6 +164,7 @@ header {
 }
 input::placeholder {
   color: inherit;
+  font-size: 0.85rem;
 }
 .input-container {
   display: flex;
@@ -426,6 +442,12 @@ h3 {
     max-width: 100vw;
     overflow-x: hidden;
   }
+  .country-details-container,
+  .details-page__border-countries p,
+  .filter p,
+  .back {
+    cursor: pointer;
+  }
   section:nth-child(1) {
     article:nth-child(2) {
       .country-container {
@@ -436,8 +458,7 @@ h3 {
           margin: 0;
           &:hover {
             transform: translateY(-1rem);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.5s ease;
           }
         }
       }
@@ -508,11 +529,12 @@ h3 {
         justify-content: space-between;
         max-width: 90%;
         margin: 1rem auto 2rem auto;
+        align-items: center;
         input {
-          width: 20rem;
+          width: 21rem;
         }
         div {
-          width: 15rem;
+          width: fit-content;
         }
       }
     }
@@ -582,6 +604,9 @@ h3 {
     color: $VeryDarkBlue;
     transition: background-color 0.5s ease;
   }
+  body::-webkit-scrollbar-thumb {
+    background-color: $DarkBlue;
+  }
 
   .country-details-container,
   header,
@@ -617,6 +642,7 @@ h3 {
   transition: opacity 0.5s ease;
 }
 .theme-switcher {
+  cursor: pointer;
   p:nth-child(1) {
     position: relative;
     width: 1rem;
