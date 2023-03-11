@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries All Around The World </title>
+    <link rel="stylesheet" href="./styles folder/index.css">
+</head>
+
+<body>
+    <div class="loader hidden"><img src="./loader/Earth animated.gif" alt=""></div>
+    <header>
+        <h1>Where in the world?</h1>
+        <div><img src="./images/icon-moon.svg" alt="icon-moon">Dark Mode</div>
+
+    </header>
+    <!-- <img src="https://flagcdn.com/w320/re.png" alt="flag"> -->
+    <main>
+        <section class="homepage ">
+            <article>
+                <div class="input-container">
+                    <p><img src="./images/search-icon.svg" alt=""></p>
+                    <input type="text" placeholder="search for a country...">
+                </div>
+                <div>
+                    <div name="regions" id="regions" class="filter">
+                        <p>Filter by Region <img class="rotate-down" src="./images/angel-up.svg" alt=""></p>
+                        <div class="options hidden">
+                            <p value="africa">Africa</p>
+                            <p value="america">Americas</p>
+                            <p value="asia">Asia</p>
+                            <p value="europe">Europe</p>
+                            <p value="oceania">Oceania</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="error-message hidden">Can't find country, try another country</div>
+                <div class="country-container">
+                    <!-- <div class="country-details-container">
+                        <img src="https://flagcdn.com/w320/re.png" alt="flag">
+                        <div>
+                            <h2 class="country-name">Germany</h2>
+                            <p>population: <span class="population">7293223</span></p>
+                            <p>region: <span class="region">Europe</span></p>
+                            <p>capital: <span class="capital">Berlin</span></p>
+                        </div>
+                    </div> -->
+                </div>
+            </article>
+        </section>
+        <!-- class="translate-right" -->
+        <section class="details-page z-index--1">
+            <article class="translate-right">
+                <div class="button__container"><button class="back"><img src="./images/arrow-left.svg" alt="">
+                        Back</button></div>
+                <div class="details-img__container">
+                    <img class="details-img" src="https://flagcdn.com/w320/re.png" alt="">
+                </div>
+                <div class="details__content-container">
+                    <div class="details-page__primary-content">
+                        <h2 class="details-page--country-name">Germany</h2>
+
+                        <ul>
+                            <li>
+                                <p>Native name: <span class="details-page--native-name">Belgie</span></p>
+                            </li>
+                            <li>
+                                <p> Population:<span class="details-page--population">8720292</span></p>
+                            </li>
+                            <li>
+                                <p>Region: <span class="details-page--region">Europe</span></p>
+                            </li>
+                            <li>
+                                <p>Capital: <span class="details-page--capital">Brussel</span></p>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <p>Top level domain: <span class="details-page--domain">.be</span></p>
+                            </li>
+                            <li>
+                                <p>currencies: <span class="details-page--currencies">Euro</span></p>
+                            </li>
+                            <li>
+                                <p>languages: <span class="details-page--languages">English</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="details-page__border-countries">
+                        <h3>Border Countries</h3>
+                        <ul>
+                            <!-- <li>
+                                <p>France <span class="details-page--border-countries"></span></p>
+                            </li>
+                            <li>
+                                <p>niger <span class="details-page--border-countries"></span></p>
+                            </li>
+                            <li>
+                                <p>paris <span class="details-page--border-countries"></span></p>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>
