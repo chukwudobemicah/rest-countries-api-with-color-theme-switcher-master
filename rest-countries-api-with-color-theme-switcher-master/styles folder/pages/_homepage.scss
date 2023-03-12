@@ -1,0 +1,122 @@
+.homepage {
+  article:nth-child(2) {
+    .country-container {
+      .country-details-container {
+        display: grid;
+        grid-template-rows: 45% 55%;
+        height: 20rem;
+        width: 100%;
+        max-width: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+          max-width: 100%;
+        }
+        div {
+          padding: 1rem 0 1rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+.homepage {
+  article:nth-child(1) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content;
+    justify-items: center;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    gap: 1.8rem;
+
+    input,
+    > div {
+      width: 90%;
+    }
+
+    input {
+      margin-top: 1rem;
+      background-color: $DarkBlue;
+      outline: none;
+      border: none;
+      padding: 0.5rem;
+    }
+
+    .filter {
+      position: relative;
+      width: 13rem;
+      background-color: $DarkBlue;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      > p:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 0.8rem;
+        }
+      }
+
+      .options {
+        left: 0;
+        position: absolute;
+        width: 13rem;
+        background-color: $DarkBlue;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        top: calc(100% + 0.3rem);
+      }
+    }
+  }
+  .rotate-up {
+    transform: rotate(180deg);
+    transition: 0.5s ease;
+  }
+  .rotate-down {
+    transform: rotate(0deg);
+    transition: 0.5s ease;
+  }
+  article:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    .error-message {
+      display: flex;
+    }
+    > div {
+      width: 70%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      margin: 1.8rem auto;
+      border-radius: 5px;
+
+      > div {
+        grid-column: span 12;
+
+        > div {
+          padding: 1.2rem 1.1rem 2.3rem 1rem;
+        }
+
+        img {
+          border-radius: 5px;
+        }
+      }
+
+      .country-name {
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        text-transform: capitalize;
+      }
+
+      .country-details-container {
+        margin: 1.5rem 0;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

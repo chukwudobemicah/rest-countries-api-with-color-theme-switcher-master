@@ -1,76 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:wght@600&family=DM+Sans:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@300;500;700&family=Josefin+Sans:wght@400;700&family=Kumbh+Sans:wght@400;700&family=League+Spartan:wght@500;600;700&family=Nunito+Sans:wght@300;600;800&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300&family=Space+Grotesk:wght@500&display=swap');
 
-/* RESETS*/
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-/*
-    2. Remove default margin
-  */
-* {
-  margin: 0;
-}
-/*
-    Typographic tweaks!
-    4. Add accessible line-height
-    5. Improve text rendering
-  */
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
-/*
-    6. Improve media defaults
-  */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-/*
-    7. Remove built-in form typography styles
-  */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-/*
-    8. Avoid text overflows
-  */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-ul,
-ol {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-button {
-  padding: 0px;
-}
 // imports
-@import 'variables';
-@import 'functions';
-
+@import './base/reset';
+@import './utilities/variables';
+@import './utilities/functions';
+@import './pages/details-page';
+@import './pages/homepage';
+@import './themes/light-theme';
 // styles
 body {
   background-color: $VeryDarkBlue-bg;
@@ -181,189 +117,15 @@ input::placeholder {
     }
   }
 }
-.homepage {
-  article:nth-child(2) {
-    .country-container {
-      .country-details-container {
-        display: grid;
-        grid-template-rows: 45% 55%;
-        height: 20rem;
-        width: 100%;
-        max-width: 100%;
-        img {
-          height: 100%;
-          width: 100%;
-          max-width: 100%;
-        }
-        div {
-          padding: 1rem 0 1rem 1rem;
-        }
-      }
-    }
-  }
+.underline {
+  text-decoration: 3px underline red;
 }
 
-.homepage {
-  article:nth-child(1) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content max-content;
-    justify-items: center;
-    width: 100%;
-    align-items: center;
-    align-content: center;
-    gap: 1.8rem;
-
-    input,
-    > div {
-      width: 90%;
-    }
-
-    input {
-      margin-top: 1rem;
-      background-color: $DarkBlue;
-      outline: none;
-      border: none;
-      padding: 0.5rem;
-    }
-
-    .filter {
-      position: relative;
-      width: 13rem;
-      background-color: $DarkBlue;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      > p:nth-child(1) {
-        display: flex;
-        justify-content: space-between;
-        img {
-          width: 0.8rem;
-        }
-      }
-
-      .options {
-        left: 0;
-        position: absolute;
-        width: 13rem;
-        background-color: $DarkBlue;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        top: calc(100% + 0.3rem);
-      }
-    }
-  }
-  .rotate-up {
-    transform: rotate(180deg);
-    transition: 0.5s ease;
-  }
-  .rotate-down {
-    transform: rotate(0deg);
-    transition: 0.5s ease;
-  }
-  article:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    .error-message {
-      display: flex;
-    }
-    > div {
-      width: 70%;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: repeat(12, 1fr);
-      margin: 1.8rem auto;
-      border-radius: 5px;
-
-      > div {
-        grid-column: span 12;
-
-        > div {
-          padding: 1.2rem 1.1rem 2.3rem 1rem;
-        }
-
-        img {
-          border-radius: 5px;
-        }
-      }
-
-      .country-name {
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        text-transform: capitalize;
-      }
-
-      .country-details-container {
-        margin: 1.5rem 0;
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
 .z-index--1 {
   z-index: -1;
 }
 .z-index-3 {
   z-index: 3;
-}
-.details-page {
-  width: 100%;
-  overflow-x: hidden;
-
-  > article {
-    width: 100%;
-    display: grid;
-    row-gap: 2rem;
-    font-size: toRem(14px);
-    grid-template-columns: repeat(12, 1fr);
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    background-color: $VeryDarkBlue-bg;
-
-    .button__container,
-    .details-img__container,
-    .details__content-container {
-      width: 85%;
-      margin: 0 auto;
-    }
-
-    .button__container {
-      grid-column: span 12;
-
-      button {
-        background-color: $DarkBlue;
-        border: none;
-        width: fit-content;
-        padding: 0.2rem 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 300;
-        gap: 0.4rem;
-        margin-top: 2rem;
-        img {
-          width: 0.8rem;
-        }
-      }
-    }
-
-    .details-img__container {
-      grid-column: span 12;
-      img {
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
-
-    .details__content-container {
-      grid-column: span 12;
-    }
-  }
 }
 
 .input-container img,
@@ -376,36 +138,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.details__content-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.details-page__border-countries {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    li {
-      width: fit-content;
-      background-color: $DarkBlue;
-      border: none;
-      width: 100%;
-      padding: 0.2rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 300;
-      text-transform: capitalize;
-    }
-  }
 }
 
 span {
@@ -593,50 +325,6 @@ h3 {
   }
 }
 
-// Light Theme
-
-.light {
-  body,
-  .details-page,
-  .details-page article,
-  .homepage article:nth-child(1) .filter .options {
-    background-color: $VeryLightGray;
-    color: $VeryDarkBlue;
-    transition: background-color 0.5s ease;
-  }
-  body::-webkit-scrollbar-thumb {
-    background-color: $DarkBlue;
-  }
-
-  .country-details-container,
-  header,
-  input,
-  .details-page > article .button__container button,
-  .homepage article:nth-child(1) .filter,
-  .homepage article:nth-child(1) input,
-  .input-container p,
-  .details-page__border-countries ul li {
-    background-color: $White;
-    transition: background-color 0.5s ease;
-  }
-  span {
-    color: rgba(0, 0, 0, 0.714);
-  }
-
-  .input-container img,
-  .filter img,
-  button img {
-    filter: invert(0);
-  }
-}
-.char {
-  transform: translateY(115px);
-  transition: transform 0.5s ease;
-}
-.details-page--country-name {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
 .opacity-0 {
   opacity: 0;
   transition: opacity 0.5s ease;

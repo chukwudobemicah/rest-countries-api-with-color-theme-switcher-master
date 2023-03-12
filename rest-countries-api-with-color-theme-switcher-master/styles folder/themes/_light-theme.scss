@@ -1,0 +1,36 @@
+// Light Theme
+
+.light {
+  body,
+  .details-page,
+  .details-page article,
+  .homepage article:nth-child(1) .filter .options {
+    background-color: $VeryLightGray;
+    color: $VeryDarkBlue;
+    transition: background-color 0.5s ease;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: $DarkBlue;
+  }
+
+  .country-details-container,
+  header,
+  input,
+  .details-page > article .button__container button,
+  .homepage article:nth-child(1) .filter,
+  .homepage article:nth-child(1) input,
+  .input-container p,
+  .details-page__border-countries ul li {
+    background-color: $White;
+    transition: background-color 0.5s ease;
+  }
+  span {
+    color: rgba(0, 0, 0, 0.714);
+  }
+
+  .input-container img,
+  .filter img,
+  button img {
+    filter: invert(0);
+  }
+}
