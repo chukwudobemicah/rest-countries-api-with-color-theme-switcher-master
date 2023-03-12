@@ -14,6 +14,8 @@ const loader = document.querySelector('.loader');
 // getTypedCountries() to get countries
 // getClickedCountry() to get country data when clicked
 // getAllCountries() get all country data
+// renderDetailsPage() render details page
+// renderCountries render countries in home page
 
 const showLoader = function () {
   loader.classList.remove('hidden');
